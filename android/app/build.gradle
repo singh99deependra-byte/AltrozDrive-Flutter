@@ -1,0 +1,47 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'dev.flutter.flutter-gradle-plugin'
+}
+
+android {
+    namespace 'com.altrozdrive.app'
+    compileSdk flutter.compileSdkVersion
+    ndkVersion flutter.ndkVersion
+
+    defaultConfig {
+        // Keep production identity for eventual migration. Debug installs are isolated
+        // so testing the Flutter build cannot overwrite the user's current app/data.
+        applicationId 'com.altrozdrive.app'
+        minSdk 26
+        targetSdk 35
+        versionCode 12306
+        versionName '1.1.21'
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix '.fluttertest'
+            versionNameSuffix '-fluttertest'
+        }
+        release {
+            // Release ID matches the existing app only after parity validation.
+            // Do not publish this release until the native/domain migration is complete.
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions { jvmTarget = '17' }
+}
+
+dependencies {
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
+}
+
+flutter { source '../..' }

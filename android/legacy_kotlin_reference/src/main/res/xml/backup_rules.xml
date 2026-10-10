@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Keep user vehicle history/settings eligible for automatic Android restore. -->
+    <include domain="database" path="." />
+    <include domain="sharedpref" path="." />
+</full-backup-content>

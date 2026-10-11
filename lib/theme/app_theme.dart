@@ -43,7 +43,7 @@ abstract final class AppTheme {
           elevation: 0,
           centerTitle: false,
         ),
-        cardTheme: CardThemeData(
+        cardTheme: CardTheme(
           color: AppColors.surface,
           surfaceTintColor: Colors.transparent,
           elevation: 0,

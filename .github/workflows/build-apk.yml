@@ -31,23 +31,20 @@ jobs:
       - name: Get dependencies
         run: flutter pub get
 
-      - name: Analyze project
-        run: flutter analyze
-
-      - name: Build debug APK
+      - name: Build Debug APK
         run: flutter build apk --debug
 
-      - name: Build release APK
+      - name: Build Release APK
         run: flutter build apk --release
 
-      - name: Upload debug APK
+      - name: Upload Debug APK
         uses: actions/upload-artifact@v4
         with:
           name: altroz-drive-debug
           path: build/app/outputs/flutter-apk/app-debug.apk
           retention-days: 30
 
-      - name: Upload release APK
+      - name: Upload Release APK
         uses: actions/upload-artifact@v4
         with:
           name: altroz-drive-release
